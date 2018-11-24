@@ -32,7 +32,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
   <arg name="husky_gazebo_description" default="$(optenv HUSKY_GAZEBO_DESCRIPTION)"/>
   <arg name="ur5_control_yaml_file" default="$(find husky_control)/config/control_ur5.yaml"/>
 
-  <param name="robot_description" command="$(find xacro)/xacro.py '$(arg husky_gazebo_description)'
+  <param name="robot_description" command="$(find xacro)/xacro.py --inorder '$(arg husky_gazebo_description)'
     laser_enabled:=$(arg laser_enabled)
     ur5_enabled:=$(arg ur5_enabled)
     kinect_enabled:=$(arg kinect_enabled)
