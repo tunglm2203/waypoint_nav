@@ -147,6 +147,8 @@ RUN wget http://download.tinkerforge.com/tools/brickv/linux/brickv_linux_latest.
 # Provision waypoint_nav for husky
 RUN apt-get install -y ros-kinetic-gazebo-* ros-kinetic-husky-* ros-kinetic-robot-localization ros-kinetic-move-base
 RUN mkdir -p /waypoint_nav/src
+COPY  scripts/waypoint_nav/*.sh /waypoint_nav/
+#RUN bash -c "cd /waypoint_nav && source /opt/ros/kinetic/setup.bash && ./build.sh"
 VOLUME ["/waypoint_nav/src"]
 ################################################################
 
