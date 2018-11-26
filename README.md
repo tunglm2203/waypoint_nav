@@ -1,5 +1,7 @@
 # waypoint_nav
 
+IMPORTANT NOTE:  I have updated the waypoint_nav project to work under ROS Kinetic.  Also, I have included Dockerfile and corresponding scripts to build and run this under Docker. (jeff AT lutz.ws)
+
 This package performs outdoor GPS waypoint navigation. It can navigate while building a map, avoiding obstacles, and can navigate continuously between each goal or stop at each goal. 
 
 This repo is made to run on a Clearpath Husky with IMU, Novatel GPS, and Sick lms111 lidar.
