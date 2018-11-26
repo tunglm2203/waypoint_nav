@@ -10,18 +10,18 @@
 	<arg name="collect_button_num" value="4" />
 	<arg name="collect_button_sym" value="LB" />
 	<arg name="send_button_num" value="5" />
-  <arg name="send_button_sym" value="RB" />
+    <arg name="send_button_sym" value="RB" />
 	<arg name="calibrate_button_num" value="7" />
-  <arg name="calibrate_button_sym" value="START" />
+    <arg name="calibrate_button_sym" value="START" />
 	<arg name="abort_button_num" value="1" />
-  <arg name="abort_button_sym" value="B" />
-  <arg name="continue_button_num" value="3" />
-  <arg name="continue_button_sym" value="Y" />
+    <arg name="abort_button_sym" value="B" />
+    <arg name="continue_button_num" value="3" />
+    <arg name="continue_button_sym" value="Y" />
 
 	<arg name="simulation_enabled" value="true" />
 
-  <!-- Run collect_gps_waypoints node -->
-  	<node ns="/outdoor_waypoint_nav" pkg="outdoor_waypoint_nav" type="joy_launch_control.py" name="joy_launch_control" output="screen"/>
+	<!-- Run collect_gps_waypoints node -->
+	<node ns="/outdoor_waypoint_nav" pkg="outdoor_waypoint_nav" type="joy_launch_control.py" name="joy_launch_control" output="screen"/>
 			<param name="/outdoor_waypoint_nav/collect_button_num" value="$(arg collect_button_num)" type="int" />
 			<param name="/outdoor_waypoint_nav/collect_button_sym" value="$(arg collect_button_sym)" type="string" />
 			<param name="/outdoor_waypoint_nav/send_button_num" value="$(arg send_button_num)" type="int" />

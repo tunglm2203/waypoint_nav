@@ -2,6 +2,8 @@ FROM ubuntu:16.04
 
 ENV DEBIAN_FRONTEND noninteractive
 
+# TUTORIAL:  http://www.clearpathrobotics.com/assets/guides/husky/HuskyGPSWaypointNav.html
+
 # built-in packages
 RUN apt-get update
 RUN apt-get install -y apt-utils
