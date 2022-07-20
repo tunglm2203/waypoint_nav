@@ -3,13 +3,14 @@
 <launch>
 
   <!-- Run gazebo to simulate robot -->
-    <include file="$(find outdoor_waypoint_nav)/launch/include/gazebo.launch"/> 
+<!--  <include file="$(find outdoor_waypoint_nav)/launch/include/gazebo.launch"/>-->
+  <include file="$(find husky_gazebo)/launch/husky_empty_world_mod.launch"/>
 
   <!-- Run teleop.launch to control sim with Joystick -->
-		<include file="$(find husky_control)/launch/teleop.launch" /> 
+<!--		<include file="$(find husky_control)/launch/teleop.launch" /> -->
 
   <!-- Run gmapping to create map -->
-    <include file="$(find husky_navigation)/launch/gmapping.launch" />
+    <include file="$(find husky_navigation)/launch/gmapping_mod.launch" />
 
   <!-- Launch hector_slam for laser odometry and mapping -->
     <!--include file="$(find hector_mapping_nav)/launch/scanmatch_nav.launch" /-->
