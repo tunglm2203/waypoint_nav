@@ -37,6 +37,35 @@ The outdoor_waypoint_nav package within waypoint_nav includes the following cust
   
 Video demonstrations can be found at my Youtube Channel: https://www.youtube.com/channel/UC3FoqSLn12-dKOQ1Sn0xbFQ/videos
 
+QUICK START:
+----------------
+Clone the modified husky and waypoint_nav packages:
+```
+cd catkin_ws/src
+git clone https://github.com/tunglm2203/husky.git
+git clone https://github.com/tunglm2203/waypoint_nav.git
+cd ..
+catkin_make 
+```
+
+To run in simulator (tested on Ubuntu 18.04, ROS melodic):
+In first terminal, run:
+```
+roscore
+```
+
+In second terminal, run:
+```
+roslaunch outdoor_waypoint_nav outdoor_waypoint_nav_sim.launch
+
+```
+
+Wait a few seconds for launching gazebo, and open third terminal, run:
+```
+roslaunch outdoor_waypoint_nav send_goals_sim.launch
+
+```
+
 IMPORTANT NOTES:
 ----------------
  - Please DO NOT contact Clearpath Robotics with questions about this package. Instead, email me at nicholas.c.charron@gmail.com.
