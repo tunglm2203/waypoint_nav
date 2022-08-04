@@ -14,7 +14,7 @@
 
 // Init variables
 float y_pos, x_pos, x_vel, x_vel_time, frequency, delay, yaw_offset, magnetic_declination_radians;
-bool zero_altitude, broadcast_utm_transform, publish_filtered_gps, use_odometry_yaw, wait_for_datum;
+bool zero_altitude, broadcast_cartesian_transform, publish_filtered_gps, use_odometry_yaw, wait_for_datum;
 
 
 void getParams()
@@ -26,7 +26,7 @@ void getParams()
     ros::param::get("/outdoor_waypoint_nav/navsat_transform/magnetic_declination_radians", magnetic_declination_radians);
     ros::param::get("/outdoor_waypoint_nav/navsat_transform/yaw_offset", yaw_offset);
     ros::param::get("/outdoor_waypoint_nav/navsat_transform/zero_altitude", zero_altitude);
-    ros::param::get("/outdoor_waypoint_nav/navsat_transform/broadcast_utm_transform", broadcast_utm_transform);
+    ros::param::get("/outdoor_waypoint_nav/navsat_transform/broadcast_cartesian_transform", broadcast_cartesian_transform);
     ros::param::get("/outdoor_waypoint_nav/navsat_transform/publish_filtered_gps", publish_filtered_gps);
     ros::param::get("/outdoor_waypoint_nav/navsat_transform/use_odometry_yaw", use_odometry_yaw);
     ros::param::get("/outdoor_waypoint_nav/navsat_transform/wait_for_datum", wait_for_datum);
@@ -46,7 +46,7 @@ void writeParams(std::string path_to_param_file, double heading_err)
         paramsFile << std::fixed << std::setprecision(5) << "  magnetic_declination_radians: " << (magnetic_declination_radians + heading_err)<< std::endl;
         paramsFile << std::fixed << std::setprecision(5) << "  yaw_offset: " << yaw_offset << std::endl;
         paramsFile << "  zero_altitude: " << std::boolalpha << zero_altitude << std::endl;
-        paramsFile << "  broadcast_utm_transform: " << std::boolalpha << broadcast_utm_transform << std::endl;
+        paramsFile << "  broadcast_cartesian_transform: " << std::boolalpha << broadcast_cartesian_transform << std::endl;
         paramsFile << "  publish_filtered_gps: " << std::boolalpha << publish_filtered_gps << std::endl;
         paramsFile << "  use_odometry_yaw: " << std::boolalpha << use_odometry_yaw << std::endl;
         paramsFile << "  wait_for_datum: " << std::boolalpha << wait_for_datum << std::endl;
@@ -70,10 +70,10 @@ int main(int argc, char **argv)
 
     // Initialise publishers and subscribers
     ros::Subscriber sub_odom = n.subscribe("/outdoor_waypoint_nav/odometry/filtered_map", 100, filtered_odom_CB);
-    ros::Publisher pubVel = n.advertise<geometry_msgs::Twist>("/husky_velocity_controller/cmd_vel",100);
+    ros::Publisher pubVel = n.advertise<geometry_msgs::Twist>("/cmd_vel",100);
     ros::Publisher pubCalibrationNodeEnded = n.advertise<std_msgs::Bool>("/outdoor_waypoint_nav/calibrate_status",100);
 
-    // Get parameters from parameer server
+    // Get parameters from parameter server
     getParams();
     ROS_WARN("PLEASE ENSURE YOU HAVE MIN. %.1f m OF CLEAR SPACE IN FRONT OF YOUR ROBOT FOR CALIBRATION",(x_vel*x_vel_time));    
 
@@ -99,7 +99,7 @@ int main(int argc, char **argv)
     ROS_INFO("Detected heading error of: %.1f Degrees", 180/M_PI*(heading_error));
 
     //write params file
-    std::string path =  ros::package::getPath("outdoor_waypoint_nav") + "/params/navsat_params.yaml";
+    std::string path =  ros::package::getPath("outdoor_waypoint_nav") + "/params/navsat_params_sim.yaml";
     ROS_INFO("Writing calibration results to file...");
     writeParams(path, heading_error);
     ROS_INFO("Wrote to param file: ");

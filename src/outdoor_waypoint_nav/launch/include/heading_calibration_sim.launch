@@ -7,7 +7,7 @@
   <rosparam command="load" file="$(find outdoor_waypoint_nav)/params/navsat_params_sim.yaml" />
 
   <!-- Start calibration node -->
-  <node ns="/outdoor_waypoint_nav" name="calibrate_heading" pkg="outdoor_waypoint_nav" type="calibrate_heading" output="screen" />
+  <node ns="/outdoor_waypoint_nav" pkg="outdoor_waypoint_nav" type="calibrate_heading" name="calibrate_heading" output="screen" />
     <!-- set x linear velocity (m/s) -->
     <param name="/outdoor_waypoint_nav/x_vel" value="0.5" />
 
