@@ -3,21 +3,21 @@
 <launch>
 
     <!-- Run gazebo to simulate robot -->
-    <include file="$(find omo_r1mini_gazebo)/launch/omo_r1mini_empty_world_mod.launch"/>
+    <include file="$(find omo_r1_gazebo)/launch/omo_r1_empty_world_mod.launch"/>
 
-    <!-- Run gmapping to create map -->
+<!--    &lt;!&ndash; Run gmapping to create map &ndash;&gt;-->
     <include file="$(find outdoor_waypoint_nav)/launch/include/gmapping_mod.launch"/>
 
-    <!-- Launch robot_localization and navsat node-->
+<!--    &lt;!&ndash; Launch robot_localization and navsat node&ndash;&gt;-->
     <include file="$(find outdoor_waypoint_nav)/launch/include/localization_run_sim.launch"/>
 
-    <!-- Run rviz -->
+<!--    &lt;!&ndash; Run rviz &ndash;&gt;-->
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find outdoor_waypoint_nav)/rviz_config/model.rviz"/>
 
-    <!-- Run husky_navigation to start move_base -->
-    <include file="$(find omo_r1mini_navigation)/launch/move_base_nav.launch"/>
+<!--    &lt;!&ndash; Run husky_navigation to start move_base &ndash;&gt;-->
+    <include file="$(find omo_r1_navigation)/launch/move_base_nav.launch"/>
 
-    <!-- launch safety node to allow the user to disable velocity commands to the robot -->
+<!--    &lt;!&ndash; launch safety node to allow the user to disable velocity commands to the robot &ndash;&gt;-->
     <include file="$(find outdoor_waypoint_nav)/launch/include/safety_node.launch"/>
 
 </launch>
