@@ -5,7 +5,7 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
-        - /GPS Odom1/Shape1
+        - /RobotModel1/Links1
         - /EKF Filtered Odom1/Shape1
       Splitter Ratio: 0.5
     Tree Height: 777
@@ -188,7 +188,7 @@ Visualization Manager:
           Scale: 1
           Value: true
         Value: true
-      Enabled: true
+      Enabled: false
       Keep: 1000
       Name: Raw Wheel Odom
       Position Tolerance: 0.10000000149011612
@@ -199,12 +199,12 @@ Visualization Manager:
         Color: 255; 25; 0
         Head Length: 0.30000001192092896
         Head Radius: 0.10000000149011612
-        Shaft Length: 1
-        Shaft Radius: 0.05000000074505806
+        Shaft Length: 0.800000011920929
+        Shaft Radius: 0.019999999552965164
         Value: Arrow
-      Topic: /husky_velocity_controller/odom
+      Topic: /odom
       Unreliable: false
-      Value: true
+      Value: false
     - Angle Tolerance: 0.10000000149011612
       Class: rviz/Odometry
       Covariance:
@@ -372,7 +372,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 0.6133376955986023
+      Distance: 97.79781341552734
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
