@@ -42,7 +42,7 @@ QUICK START:
 Clone the modified husky and waypoint_nav packages:
 ```
 cd catkin_ws/src
-git clone https://github.com/tunglm2203/husky.git
+git clone https://github.com/tunglm2203/omo_r1mini.git
 git clone https://github.com/tunglm2203/waypoint_nav.git
 cd ..
 catkin_make 
