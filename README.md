@@ -66,14 +66,6 @@ roslaunch outdoor_waypoint_nav send_goals_sim.launch
 
 ```
 
-IMPORTANT NOTES:
-----------------
- - Please DO NOT contact Clearpath Robotics with questions about this package. Instead, email me at nicholas.c.charron@gmail.com.
- 
- - Regarding the calibration node: the heading calibration node is not required if your magnetometer is calibrated correctly. Instructions for performing magnetometer calibration are hard to come by, so often they are not calibrated correctly. Use this "hack" heading calibration node only if your heading is not correct when launching the waypoint navigation node (see this video: https://youtu.be/jsR8gYgeDG0). This will only temporarily solve your problem and must be run every time you start this package. We recommend instead to perform proper magnetometer calibration.
- 
- - The continuous waypoint navigation software was tested in simulation and works well in simulation, however it still doesn't work properly with our tests outdoor.
- 
- - Please submit pull requests if you update this package and/or fix bugs.
- 
- - This code is meant as a tutorial to perform waypoint navigation using common ROS packages. It has not been tested for robustness and should not be used as a final product. If you are looking for a final working GPS waypoint navigation solution, please contact Clearpath Robotics, as they have recently developped a more commercial solution.
+Some required packages (TBU):
+
+sudo apt install ros-$ROS_DISTRO-ddynamic-reconfigure ros-$ROS_DISTRO-hector-gazebo-plugins
