@@ -2,8 +2,18 @@
 
 <launch>
 
+<!--    <arg name="init_latitude" default="36.37081389" />-->
+<!--    <arg name="init_longtitude" default="127.36651111" />-->
+
+    <arg name="init_latitude" default="36.370069" />
+    <arg name="init_longtitude" default="127.367833" />
+
+
     <!-- Run gazebo to simulate robot -->
-    <include file="$(find omo_r1_gazebo)/launch/omo_r1_empty_world_mod.launch"/>
+    <include file="$(find omo_r1_gazebo)/launch/omo_r1_empty_world_mod.launch">
+        <arg name="init_latitude" value="$(arg init_latitude)"/>
+        <arg name="init_longtitude" value="$(arg init_longtitude)"/>
+    </include>
 
 <!--    &lt;!&ndash; Run gmapping to create map &ndash;&gt;-->
     <include file="$(find outdoor_waypoint_nav)/launch/include/gmapping_mod.launch"/>
