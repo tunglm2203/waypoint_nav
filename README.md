@@ -89,7 +89,10 @@ roslaunch outdoor_waypoint_nav send_goals_sim.launch
 
 # Required packages for simulator (TBU)
 ```
-sudo apt-get install ros-$ROS_DISTRO-hector-gazebo-plugins
+sudo apt-get install -y ros-$ROS_DISTRO-cartographer-ros ros-$ROS_DISTRO-marti-common-msgs \
+    ros-$ROS_DISTRO-hector-gazebo-plugins ros-$ROS_DISTRO-swri-* ros-$ROS_DISTRO-move-base-* \
+    ros-$ROS_DISTRO-usb-cam ros-$ROS_DISTRO-mapviz ros-$ROS_DISTRO-mapviz-plugins \
+   ros-$ROS_DISTRO-tile-map ros-$ROS_DISTRO-multires-image
 ```
 
 
