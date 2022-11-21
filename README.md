@@ -34,7 +34,9 @@ The outdoor_waypoint_nav package within waypoint_nav includes the following cust
 # Quick start
 
 ----------------
-Clone the modified omo_r1 (branch dev_r1d2_gps_navigation) and waypoint_nav packages:
+### Setup required packages:
+
+- Clone the modified omo_r1 (branch dev_r1d2_gps_navigation) and waypoint_nav packages:
 
 ```
 cd ~/catkin_ws/src
@@ -60,19 +62,25 @@ cd ~/catkin_ws/src
 catkin_make 
 ```
 
-To run in simulator (tested on Ubuntu 18.04, ROS melodic):
+- Setup mapviz following https://github.com/danielsnider/MapViz-Tile-Map-Google-Maps-Satellite.git
+
+Remember to run the docker first, so the google map can be displayed on mapviz
+
+### Start:
+
+- To run in simulator (tested on Ubuntu 18.04, ROS melodic):
 In first terminal, run:
 ```
 roscore
 ```
 
-In second terminal, run:
+- In second terminal, run:
 ```
 roslaunch outdoor_waypoint_nav outdoor_waypoint_nav_sim.launch
 
 ```
 
-Wait a few seconds for launching gazebo, and open third terminal, run:
+- Wait a few seconds for launching gazebo, and open third terminal, run:
 ```
 roslaunch outdoor_waypoint_nav send_goals_sim.launch
 
