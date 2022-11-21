@@ -1,10 +1,10 @@
-# waypoint_nav
+# GPS-waypoint-based-Autonomous-Navigation-in-ROS
+GPS points will be predefined for the robot to navigate to the destination while avoiding obstacles.
 
-IMPORTANT NOTE:  I have updated the waypoint_nav project to work under ROS Kinetic.  Also, I have included Dockerfile and corresponding scripts to build and run this under Docker. (jeff AT lutz.ws)
 
-This package performs outdoor GPS waypoint navigation. It can navigate while building a map, avoiding obstacles, and can navigate continuously between each goal or stop at each goal. 
+# Description
 
-This repo is made to run on a Clearpath Husky with IMU, Novatel GPS, and Sick lms111 lidar.
+This repo package was tested on Gazebo simulator (version 9.0) with a Omo R1/R1 mini with IMU, GPS, and lidar. The PC is running Ubuntu 18.04, ROS Melodic, Gazebo 9.0.
 
 This package uses a combination of the following packages:
 
@@ -29,22 +29,34 @@ The outdoor_waypoint_nav package within waypoint_nav includes the following cust
 	- plot_gps_waypoints to save raw data from the GPS for plotting purposes
 	
 	- gps_waypoint_mapping to combine waypoint navigation with Mandala Robotics' 3D mapping software for autonomous 3D mapping
-  
-  For additional information and instructions on how to use the package, see Clearpath Robotic's blog post and tutorial 
-  
-  	Tutorial: http://www.clearpathrobotics.com/assets/guides/husky/HuskyGPSWaypointNav.html
-  	Blog: to be posted soon.
-  
-Video demonstrations can be found at my Youtube Channel: https://www.youtube.com/channel/UC3FoqSLn12-dKOQ1Sn0xbFQ/videos
 
-QUICK START:
+
+# Quick start
+
 ----------------
-Clone the modified husky and waypoint_nav packages:
+Clone the modified omo_r1 (branch dev_r1d2_gps_navigation) and waypoint_nav packages:
+
 ```
-cd catkin_ws/src
-git clone https://github.com/tunglm2203/husky.git
-git clone https://github.com/tunglm2203/waypoint_nav.git
+cd ~/catkin_ws/src
+
+git clone https://github.com/tunglm2203/omo_r1.git
+cd omo_r1
+git checkout dev_r1d2_gps_navigation    # Checkout branch "dev_r1d2_gps_navigation"
 cd ..
+
+git clone https://github.com/tunglm2203/waypoint_nav.git
+cd waypoint_nav
+cd checkout dev_r1d2                    # Checkout branch "dev_r1d2"
+cd ..
+
+git clone https://github.com/cra-ros-pkg/robot_localization.git
+cd robot_localization
+git checkout melodic-devel              # Checkout branch "melodic-devel"
+cd ..
+
+git clone https://github.com/tunglm2203/mapviz.git
+
+cd ~/catkin_ws/src
 catkin_make 
 ```
 
@@ -66,14 +78,13 @@ roslaunch outdoor_waypoint_nav send_goals_sim.launch
 
 ```
 
-IMPORTANT NOTES:
-----------------
- - Please DO NOT contact Clearpath Robotics with questions about this package. Instead, email me at nicholas.c.charron@gmail.com.
- 
- - Regarding the calibration node: the heading calibration node is not required if your magnetometer is calibrated correctly. Instructions for performing magnetometer calibration are hard to come by, so often they are not calibrated correctly. Use this "hack" heading calibration node only if your heading is not correct when launching the waypoint navigation node (see this video: https://youtu.be/jsR8gYgeDG0). This will only temporarily solve your problem and must be run every time you start this package. We recommend instead to perform proper magnetometer calibration.
- 
- - The continuous waypoint navigation software was tested in simulation and works well in simulation, however it still doesn't work properly with our tests outdoor.
- 
- - Please submit pull requests if you update this package and/or fix bugs.
- 
- - This code is meant as a tutorial to perform waypoint navigation using common ROS packages. It has not been tested for robustness and should not be used as a final product. If you are looking for a final working GPS waypoint navigation solution, please contact Clearpath Robotics, as they have recently developped a more commercial solution.
+# Required packages for simulator (TBU)
+sudo apt-get install ros-$ROS_DISTRO-hector-gazebo-plugins
+
+# Acknowledgement
+
+- https://github.com/ArghyaChatterjee/gps-waypoint-based-autonomous-navigation-in-ros
+- https://github.com/nickcharron
+- https://github.com/nobleo/rviz_satellite
+- https://github.com/danielsnider/MapViz-Tile-Map-Google-Maps-Satellite
+- https://github.com/swri-robotics/mapviz
