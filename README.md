@@ -36,7 +36,7 @@ The outdoor_waypoint_nav package within waypoint_nav includes the following cust
 ----------------
 ### Setup required packages:
 
-- Clone the modified omo_r1 (branch dev_r1d2_gps_navigation) and waypoint_nav packages:
+Clone the modified omo_r1 (branch dev_r1d2_gps_navigation) and waypoint_nav packages:
 
 ```
 cd ~/catkin_ws/src
@@ -62,9 +62,12 @@ cd ~/catkin_ws/src
 catkin_make 
 ```
 
-- Setup mapviz following https://github.com/danielsnider/MapViz-Tile-Map-Google-Maps-Satellite.git
+Setup mapviz following https://github.com/danielsnider/MapViz-Tile-Map-Google-Maps-Satellite.git
 
-Remember to run the docker first, so the google map can be displayed on mapviz
+Remember to run the docker first, so the google map can be displayed on mapviz:
+```
+sudo docker run -p 8080:8080 -d -t -v ~/mapproxy:/mapproxy danielsnider/mapproxy
+```
 
 ### Start:
 
@@ -77,17 +80,18 @@ roscore
 - In second terminal, run:
 ```
 roslaunch outdoor_waypoint_nav outdoor_waypoint_nav_sim.launch
-
 ```
 
 - Wait a few seconds for launching gazebo, and open third terminal, run:
 ```
 roslaunch outdoor_waypoint_nav send_goals_sim.launch
-
 ```
 
 # Required packages for simulator (TBU)
+```
 sudo apt-get install ros-$ROS_DISTRO-hector-gazebo-plugins
+```
+
 
 # Acknowledgement
 
