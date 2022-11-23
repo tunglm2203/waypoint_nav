@@ -64,9 +64,9 @@ cd ~/catkin_ws
 catkin_make 
 ```
 
-Setup mapviz following https://github.com/danielsnider/MapViz-Tile-Map-Google-Maps-Satellite.git
+Setup mapviz following https://github.com/danielsnider/MapViz-Tile-Map-Google-Maps-Satellite.git (docker is required)
 
-Remember to run the docker first, so the google map can be displayed on mapviz:
+Remember to run the docker first before following commands. For quickly, execute the following command so the google map can be displayed on mapviz:
 ```
 sudo docker run -p 8080:8080 -d -t -v ~/mapproxy:/mapproxy danielsnider/mapproxy
 ```
