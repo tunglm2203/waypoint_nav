@@ -58,6 +58,8 @@ cd ..
 
 git clone https://github.com/tunglm2203/mapviz.git
 
+git clone https://github.com/tunglm2203/rviz_satellite.git
+
 cd ~/catkin_ws/src
 catkin_make 
 ```
