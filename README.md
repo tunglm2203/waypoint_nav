@@ -48,7 +48,7 @@ cd ..
 
 git clone https://github.com/tunglm2203/waypoint_nav.git
 cd waypoint_nav
-cd checkout dev_r1d2                    # Checkout branch "dev_r1d2"
+git checkout dev_r1d2                    # Checkout branch "dev_r1d2"
 cd ..
 
 git clone https://github.com/cra-ros-pkg/robot_localization.git
