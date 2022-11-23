@@ -82,7 +82,7 @@ roscore
 roslaunch outdoor_waypoint_nav outdoor_waypoint_nav_sim.launch
 ```
 
-- Wait a few seconds for launching gazebo, and open third terminal, run:
+- Wait a few minutes for launching gazebo (don't run it right away, the move_base process can have problem), and open third terminal, run:
 ```
 roslaunch outdoor_waypoint_nav send_goals_sim.launch
 ```
