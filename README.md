@@ -56,8 +56,6 @@ cd robot_localization
 git checkout melodic-devel              # Checkout branch "melodic-devel"
 cd ..
 
-git clone https://github.com/tunglm2203/mapviz.git
-
 git clone https://github.com/tunglm2203/rviz_satellite.git
 
 cd ~/catkin_ws
