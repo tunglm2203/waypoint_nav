@@ -60,7 +60,7 @@ git clone https://github.com/tunglm2203/mapviz.git
 
 git clone https://github.com/tunglm2203/rviz_satellite.git
 
-cd ~/catkin_ws/src
+cd ~/catkin_ws
 catkin_make 
 ```
 
