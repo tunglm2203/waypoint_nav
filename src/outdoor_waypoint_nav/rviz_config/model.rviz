@@ -7,8 +7,9 @@ Panels:
         - /Global Options1
         - /RobotModel1/Links1
         - /EKF Filtered Odom1/Shape1
+        - /AerialMapDisplay1
       Splitter Ratio: 0.5
-    Tree Height: 777
+    Tree Height: 796
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -81,21 +82,30 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        caster_back_link:
+        camera_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        housing_link:
+        camera_rgb_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera_rgb_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        caster_back_left_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        caster_back_right_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
         imu_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        main_camera_optical:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -349,6 +359,23 @@ Visualization Manager:
       Unreliable: false
       Use Timestamp: false
       Value: true
+    - Alpha: 0.699999988079071
+      Blocks: 3
+      Class: rviz_plugins/AerialMapDisplay
+      Draw Behind: false
+      Enabled: true
+      Map Frame: map
+      Map transform type: Explicit UTM Frame
+      Name: AerialMapDisplay
+      Object URI: http://localhost:8080/wmts/gm_layer/gm_grid/{z}/{x}/{y}.png
+      Topic: /navsat/fix
+      UTM Frame: utm
+      UTM Zone: 52
+      Value: true
+      XY Reference: map
+      Z Offset: 0
+      Z Reference: map
+      Zoom: 19
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -372,33 +399,33 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 97.79781341552734
+      Distance: 193.03555297851562
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.404308021068573
-        Y: -0.5285016298294067
-        Z: 0.5104543566703796
+        X: -67.31538391113281
+        Y: -52.476951599121094
+        Z: -6.901182651519775
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.7303999066352844
+      Pitch: 0.7903999090194702
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 5.023563861846924
+      Yaw: 2.7635562419891357
     Saved: ~
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 1000
+  Height: 1025
   Hide Left Dock: false
   Hide Right Dock: true
-  QMainWindow State: 000000ff00000000fd00000004000000000000018c00000392fc0200000005fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003b00000392000000c700ffffff000000010000010f000003dafc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730000000028000003da000000a000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004a00000003efc0100000002fb0000000800540069006d00650000000000000004a00000042700fffffffb0000000800540069006d00650100000000000004500000000000000000000005ee0000039200000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd00000004000000000000018c000003a7fc0200000005fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003d000003a7000000c900ffffff000000010000010f000003dafc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730000000028000003da000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004a00000003efc0100000002fb0000000800540069006d00650000000000000004a0000004f300fffffffb0000000800540069006d00650100000000000004500000000000000000000005ab000003a700000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
@@ -407,6 +434,6 @@ Window Geometry:
     collapsed: false
   Views:
     collapsed: true
-  Width: 1920
-  X: 1928
-  Y: 31
+  Width: 1853
+  X: 67
+  Y: 27
