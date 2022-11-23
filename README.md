@@ -41,8 +41,8 @@ Clone the modified omo_r1 (branch dev_r1d2_gps_navigation) and waypoint_nav pack
 ```
 cd ~/catkin_ws/src
 
-git clone https://github.com/tunglm2203/omo_r1.git
-cd omo_r1
+git clone https://github.com/tunglm2203/mobilio.git
+cd mobilio
 git checkout dev_r1d2_gps_navigation    # Checkout branch "dev_r1d2_gps_navigation"
 cd ..
 
